@@ -8,6 +8,8 @@ import { DockerManager } from '../docker-manager';
 import { SandboxManager } from '../sandbox-manager';
 import { DesktopController } from './DesktopController';
 import { SettingsManager } from "../settings-manager";
+import { createConnectTransport } from '@connectrpc/connect-web';
+import createRpcLogger from '@e2b/code-interpreter';
 
 // Monkey patch Sandbox initialization to fix EnvdApiClient headers issue
 function patchSandboxInitialization() {
@@ -56,10 +58,6 @@ function patchSandboxInitialization() {
                         if (!envdApiUrl || !connectionConfig) {
                             throw new Error('Sandbox properties not accessible for filesystem patching');
                         }
-
-                        // Import required dependencies
-                        const { createConnectTransport } = require('@connectrpc/connect-web');
-                        const { createRpcLogger } = require('@e2b/code-interpreter');
 
                         // Recreate RPC transport with complete configuration
                         const rpcTransport = createConnectTransport({
