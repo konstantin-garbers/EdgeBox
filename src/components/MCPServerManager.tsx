@@ -215,7 +215,7 @@ export const MCPServerStatusCard: React.FC = () => {
 
 // MCP Server监听地址配置卡片
 export const MCPServerConfigCard: React.FC = () => {
-  const [enableGUITools, setEnableGUITools] = useState<boolean>(true);
+  const [enableGUITools, setEnableGUITools] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

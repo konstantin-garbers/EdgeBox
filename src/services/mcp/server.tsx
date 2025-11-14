@@ -721,15 +721,8 @@ function addGUITools(server: FastMCP) {
 function addAllTools(serverInstance: FastMCP) {
     // Core tools (always available)
     addCoreTools(serverInstance);
-
-    // GUI tools (conditional)
-    if (isGUIToolsEnabled()) {
-        console.log('Loading GUI tools...');
-        addGUITools(serverInstance);
-    } else {
-        console.log('GUI tools disabled, skipping...');
-    }
-}
+    addGUITools(serverInstance);
+   }
 // Export the server instance without auto-starting
 // export default server;
 
